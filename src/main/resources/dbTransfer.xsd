@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://dbtransfer.jd.com" targetNamespace="http://dbtransfer.jd.com" elementFormDefault="qualified">
+	<xs:element name="databases">
+		<xs:annotation>
+			<xs:documentation><![CDATA[ 数据库配置文件根元素 ]]></xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="databasesElements" minOccurs="1" maxOccurs="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="databasesElements">
+		<xs:sequence>
+			<xs:element ref="from" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="to" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="from">
+		<xs:annotation>
+			<xs:documentation><![CDATA[ 迁移源数据库 ]]></xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="database"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="to">
+		<xs:annotation>
+			<xs:documentation><![CDATA[ 迁移目标数据库 ]]></xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="database"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="database">
+		<xs:complexType>
+			<xs:group ref="dbElements" minOccurs="1" maxOccurs="1"/>
+			<xs:attribute name="dbType" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="dbElements">
+		<xs:sequence>
+			<xs:element name="ip" type="xs:string"/>
+			<xs:element name="port" type="xs:integer"/>
+			<xs:element name="dbname" type="xs:string"/>
+			<xs:element name="username" type="xs:string"/>
+			<xs:element name="password" type="xs:string"/>
+		</xs:sequence>
+	</xs:group>
+</xs:schema>

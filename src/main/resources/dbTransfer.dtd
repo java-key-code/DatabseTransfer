@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT databases (from, to)>
+<!ELEMENT from (database*)>
+<!ELEMENT to (database*)>
+
+<!ELEMENT database (ip, port, dbname, username, password)>
+<!ELEMENT ip (#PCDATA)>
+<!ELEMENT port (#PCDATA)>
+<!ELEMENT dbname (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+
+<!ATTLIST database dbType (mysql|oracle) "mysql">

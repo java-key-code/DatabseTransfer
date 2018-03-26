@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE databases SYSTEM "dbTransfer.dtd">
+<databases>  --> 
+<databases xmlns="http://dbtransfer.jd.com"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://dbtransfer.jd.com dbTransfer.xsd">
+	<from>
+		<database dbType="mysql">
+			<ip>127.0.0.1</ip>
+			<port>3306</port>
+			<dbname>test</dbname>
+	  		<username>root</username>
+	  		<password>root</password>
+		</database>
+		<database dbType="mysql">
+			<ip>192.168.31.108</ip>
+			<port>3306</port>
+			<dbname>test</dbname>
+	  		<username>xxx</username>
+	  		<password>xxxx</password>
+		</database>
+		<database dbType="oracle">
+			<ip>192.168.31.112</ip>
+			<port>1521</port>
+			<dbname>orcl</dbname>
+	  		<username>xxx</username>
+	  		<password>xxxx</password>
+		</database>
+	</from>
+	<to>
+		<database dbType="mysql">
+			<ip>127.0.0.1</ip>
+			<port>3306</port>
+			<dbname>data_transfer</dbname>
+	  		<username>root</username>
+	  		<password>root</password>
+		</database>
+		<database dbType="oracle">
+			<ip>192.168.31.112</ip>
+			<port>1521</port>
+			<dbname>orcl</dbname>
+	  		<username>xxx</username>
+	  		<password>xxxx</password>
+		</database>
+	</to>
+</databases>

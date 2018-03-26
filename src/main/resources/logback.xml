@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="utf-8">
+			<pattern>[%d{ISO8601}] [%-5level] [%X{session_id}] [%X{login}] [%logger] - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/logs/DatabaseTransfer/webapp.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/logs/DatabaseTransfer/webapp.log-%d{yyyyMMdd}.log</FileNamePattern>
+			<maxHistory>3</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%d{ISO8601}] [%-5level] [%X{session_id}] [%X{login}] [%logger] - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework.web" level="DEBUG" />
+	<logger name="com.jd.db.transfer" level="DEBUG" />
+	
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="file" />
+	</root>
+</configuration>
